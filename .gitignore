@@ -1,0 +1,56 @@
+.DS_Store
+node_modules
+dist
+out
+electron-app/dist
+electron-app/release
+electron-app/coverage
+electron-app/logs
+electron-app/.nyc_output
+electron-app/.scannerwork
+electron-app/mochawesome-report/
+electron-app/version.txt
+vue-app/dist
+.webpack
+.vite
+KinoSSBTLogs
+KinoSSBT
+
+vue-app/mocha.json
+vue-app/test/unit/webpack-stats.json
+electron-app/mocha.json
+
+
+#Rebuild config files
+*.gypi
+
+vue-app/.nyc_output
+vue-app/.scannerwork
+
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.iml
+/.project
+/.settings/
+/.gradle/
+
+# e2e playwright reports
+electron-app/playwright/reports/
+
+# Unit test reports
+electron-app/test/unit/coverage

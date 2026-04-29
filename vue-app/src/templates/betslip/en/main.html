@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    .divTable{
+      display: table;
+      font-family:arial, sans-serif;
+      font-size: 26px;
+      width: 580px;
+      margin-left:20px;
+      margin-top:20px;
+      text-align: center;
+      vertical-align: center;
+      padding: 20px;
+    }
+    .divTableRow {
+      display: table-row;
+    }
+    .divTableCell{
+      display: table-cell;
+      padding: 3px 10px;
+      vertical-align: top;
+    }
+    .divTableBody {
+      display: table-row-group;
+    }
+  </style>
+</head>
+<body>
+
+<div class="divTable" >
+  <div class="divTableBody">
+    <div class="divTableRow">
+      <div class="divTableCell"><img src="../../../assets/logo2.png" style="width:150px;height:84px;"/></div>
+      <div class="divTableCell"><img src="../../../assets/kino_logo2.png" style="width: 140px;height: 84px;"/></div>
+    </div>
+    <div class="divTableRow">
+      <div class="divTableCell">{{{image}}}</div>
+      <div class="divTableCell"><span style="font-weight: bold;">KINO BETSLIP QR CODE</span><br><br>
+        {{terminalId}}<br>
+        COST: {{totalAmount}} EUR</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

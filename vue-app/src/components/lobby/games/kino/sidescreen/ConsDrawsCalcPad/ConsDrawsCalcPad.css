@@ -1,0 +1,63 @@
+.cons-draws-calc-title {
+  font-family: 'Roboto', sans-serif !important;
+  font-size: 16px !important;
+  font-weight: normal !important;
+  background-color: #e1001a !important;
+  color: white !important;
+  text-align: center !important;
+  border-radius: 8px !important;
+  margin-bottom: 3px !important;
+  border: 0px !important;
+  padding-top: 7px;
+  height: 35px;
+}
+.cons-draws-calc-body {
+  margin: 0 auto;
+  padding: 10px;
+  background: radial-gradient(
+    #9ccbdb,
+    #8dbac9,
+    #739aa8
+  );
+  width: 230px;
+  height: 280px;
+  border-radius: 8px;
+  text-align: center;
+}
+.cons-draws-keypad-numbers,
+.cons-draws-keypad-buttons {
+  padding: 7px;
+}
+.popover-body button{
+  padding: 0;
+  color: white;
+  font-size: 19.28px;
+  text-align: center;
+  font-weight: 900;
+  width: 50px;
+  height: 50px;
+  background-color: #0a3b51;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.cons-draws-keypad-ce-button{
+  background-color: #e1001a !important;
+  color: white !important;
+  border-radius: 7px !important;
+  font-size: 19.28px;
+  text-align: center;
+  font-weight: 900;
+  width: 48px;
+  height: 48px;
+}
+.cons-draws-keypad-ok-button{
+  background-color: #90f552 !important;
+  color: #0a3b51 !important;
+  border-radius: 7px !important;
+  font-size: 19.28px;
+  text-align: center;
+  font-weight: 900;
+  width: 48px;
+  height: 48px;
+}

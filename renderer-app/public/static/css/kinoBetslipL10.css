@@ -1,0 +1,84 @@
+html,
+body {
+  font-family:
+    monaco,
+    Consolas,
+    Lucida Console,
+    monospace;
+  font-size: 23px;
+  letter-spacing: -2px;
+  width: 512px;
+}
+
+.text-small {
+  font-size: 20px;
+}
+
+.container-fluid {
+  margin-top: 0px;
+  margin-bottom: 30px;
+}
+
+.col,
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9 .col-10,
+.col-11,
+.col-12 {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.bold-text {
+  font-weight: 900;
+}
+
+.header-row {
+  margin-bottom: 10px;
+}
+
+.horizontal-line-dashed {
+  border-top: dashed 1px;
+}
+
+.horizontal-line-solid {
+  border-top: solid 1px;
+}
+
+.inline-div {
+  display: inline-block;
+}
+
+.div-with-margin {
+  margin-right: 10px;
+}
+
+.total-cost {
+  font-size: 28px;
+}
+
+.quickPick {
+  margin-right: 15px;
+}
+
+.middle-asterisk > .asterisk {
+  vertical-align: sub;
+}
+
+.serial-number {
+  padding-left: 0;
+  padding-right: 0;
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.markers-numbers {
+  display: grid;
+  grid-template-columns: repeat(11, 1fr);
+}

@@ -1,0 +1,17 @@
+{
+  "request" : {
+    "url" : "/web/wallet/rest/v2/customers/717500613/accounts/AT_MAIN/balance3",
+    "method" : "GET",
+    "headers" : {
+      "Authorization" : { "equalTo" : "Bearer 94a47ffa-834a-4d03-a688-1c9b111133bb"}
+    }
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"balance\":97.5}",
+    "headers" : {
+      "Content-Type": "application/json;charset=UTF-8",
+      "Connection": "keep-alive"
+    }
+  }
+}

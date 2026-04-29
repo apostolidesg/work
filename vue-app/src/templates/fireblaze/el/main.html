@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/kinoBetslipL10.css">
+  <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row align-items-center header-row">
+    <div class="col text-left">
+      <img src="{{logoUrl}}" style="width:100px;height:110px;"/>
+    </div>
+    <div class="col text-center">
+      <img src="../../../assets/fireblaze_receipt_logo.jpeg" style="width:220px;height:130px;"/>
+    </div>
+    <div class="col text-right">
+      <img src="{{qrCodeURL}}"/>
+    </div>
+  </div>
+  <div class="row text-right">
+    <div class="col text-center serial-number" >
+      <span class="bold-text">{{serialNumber}}</span>
+    </div>
+  </div>
+  <div class="row horizontal-line-solid"></div>
+
+  {{#wager.boards}}
+
+  <div class="row">
+    <div class="col">
+      <span>{{betLabel}}:ΑΡ.{{#panels.0.quickPick}}(TE){{/panels.0.quickPick}}:</span>
+      {{#panels.0.selection}}
+      <span>{{.}}</span>
+      {{/panels.0.selection}}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-3">ΠΟΛ/ΣΤΗΣ:</div>
+    <div class="col-6">{{multipliers}} (ΠΟΣΟ: €{{value}})</div>
+  </div>
+  <div class="row horizontal-line-dashed"></div>
+
+  {{/wager.boards}}
+  {{#isInstantWin}}
+  <div class="row instant-win-notification">
+    <div class="col-12 text-center small">
+      <span>{{ instantWinNotification }}</span>
+    </div>
+    <div class="col-12 text-center total-cost">
+      <span class="bold-text">{{ instantWinTitle }}</span>
+    </div>
+    <div class="col-8 mx-auto text-center small">
+      <div class="bold-text">{{ instantWinDescription }}</div>
+    </div>
+  </div>
+
+  <div class="row horizontal-line-dashed"></div>
+  {{/isInstantWin}}
+
+  <div class="row total-cost">
+    <div class="col-7 text-left">
+      <span class="bold-text">ΣΥΝ. ΑΞΙΑ ΔΕΛΤΙΟΥ:</span>
+    </div>
+    <div class="col-5 text-right">
+      <span class="bold-text">{{wager.cost}} EYΡΩ</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-7 text-left">
+      <span>ΜΕΓΙΣΤΗ ΕΠΙΣΤΡΟΦΗ:</span>
+    </div>
+    <div class="col-5 text-right">
+      <span class="bold-text">{{wager.maxWinnings}} ΕΥΡΩ</span>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-5">
+      <span>ΣΤΗΛΕΣ: {{columns}}</span>
+    </div>
+    <div class="col-7 text-right">
+      <span>ΚΛΗΡΩΣΕΙΣ: {{wager.participatingDraws.multipleDraws}}</span>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-5">
+      <span>ΑΠΟ: {{wager.participatingDraws.firstDraw}}</span>
+    </div>
+    <div class="col-7 text-right">
+      <span>({{wager.participatingDraws.firstDrawTime}})</span>
+    </div>
+  </div>
+
+  <div class="row justify-content-between">
+    <div class="col-5">
+      <span>ΕΩΣ: {{wager.participatingDraws.lastDraw}}</span>
+    </div>
+    <div class="col-7 text-right">
+      <span>({{wager.participatingDraws.lastDrawTime}})</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <span>ΚΛ/ΚΑΤ: {{wager.participatingDraws.firstDraw}}</span>
+    </div>
+  </div>
+
+  <div class="row horizontal-line-solid"></div>
+
+  <div class="row">
+    <div class="col-12 text-center">
+      <span>ΤΥΠΩΘΗΚΕ {{currentDateTime}}</span>
+    </div>
+    <div class="col-12 text-center">
+      <span>ΠΡΑΚΤΟΡΕΙΟ: {{retailerId}}-{{operator}} {{terminalId}}</span>
+    </div>
+    <div class="col-12 text-center">
+      <span>ΚΩΔ. ΣΥΝ.:{{hexCrcCode}}</span>
+    </div>
+    <div class="col-12 text-center">
+      <span>ΚΩΔ. ΔΕΛΤΙΟΥ.:{{wagerId}}</span>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col text-center text-small">
+      <span>{{terms}}</span>
+    </div>
+  </div>
+  <div class="row mb-1 mt-2">
+    <div class="col-12 text-center text-small">{{companyInfo.name}}</div>
+    <div class="col-12 text-center text-small">{{companyInfo.address}} {{companyInfo.gemiNumber}}</div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <img class="image-fluid" style="width: 512px;height: 70px;" src="{{imageURL}}"/>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+.banner{
+  margin:50px;
+}
+img{
+  border-radius: 10px 10px;
+  box-shadow: 2px 4px rgba(0, 0, 0, 0.4);
+}

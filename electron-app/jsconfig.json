@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "checkJs": false,
+    "target": "ESNext",
+    "module": "ESNext",
+    "esModuleInterop": false,
+    "allowSyntheticDefaultImports": true,
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": ".",
+    "types": ["vitest/globals"],
+    "paths": {
+      "#/*": ["./playwright/*"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["./src/**/*"]
+}

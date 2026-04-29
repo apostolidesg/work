@@ -1,0 +1,90 @@
+#app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.snotifyToast.snotify-simple {
+  width: 500px;
+  margin-left: -100px;
+}
+.live-draw-dialog__container {
+  display: flex;
+  flex-direction: row;
+  margin-right: -60px;
+  margin-left: -10px;
+}
+.live-draw-dialog__image-block {
+  width: 35%;
+}
+.live-draw-dialog__image {
+  width: 100%;
+  height: auto;
+}
+.live-draw-dialog__text {
+  padding-left: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+.snotifyToast.snotify-simple .snotifyToast__buttons {
+  border: none;
+  padding: 5px;
+  justify-content: space-between;
+}
+.snotifyToast.snotify-simple .snotifyToast__buttons button {
+  font-weight: 500;
+  border-radius: 5px;
+}
+.snotifyToast__buttons button.live-draw-dialog__reject-button,
+.snotifyToast__buttons button.live-draw-dialog__reject-button:hover,
+.snotifyToast__buttons button.live-draw-dialog__reject-button:focus {
+  margin-right: 5px;
+}
+.snotifyToast__buttons button.live-draw-dialog__accept-button,
+.snotifyToast__buttons button.live-draw-dialog__accept-button:hover,
+.snotifyToast__buttons button.live-draw-dialog__accept-button:focus {
+  margin-left: 5px;
+}
+
+.game-card--kino {
+  position: relative;
+  background: transparent;
+  overflow: hidden;
+  border-radius: 40px;
+}
+
+.game-card--kino::before {
+  content: '';
+  position: absolute;
+  background: linear-gradient(337.03deg, rgba(250, 127, 27, 0.53) 28.01%, rgba(141, 91, 49, 0.3127) 82.81%);
+  inset: 0;
+  filter: blur(8px);
+  z-index: -1;
+}
+
+.game-card--kino::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  border: 3px solid transparent;
+  background: var(--gradient-kino-border);
+  mask-composite: exclude;
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  z-index: 2;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.fade-enter-to,
+.fade-leave-from {
+  opacity: 1;
+}

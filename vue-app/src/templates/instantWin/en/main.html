@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="static/css/bootstrap.min.css">
+  <link rel="stylesheet" href="static/css/kinoBetslipL10.css">
+  <title>Title</title>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row align-items-center header-row">
+    <div class="col text-center mt-2">
+      <img src="{{logoUrl}}" style="width:70px;height:80px;"/>
+    </div>
+  </div>
+  <div class="row align-items-center header-row">
+    <div class="col-12 text-center total-cost">
+      <span class="bold-text">ΑΜΕΣΗ ΝΙΚΗ</span>
+    </div>
+    <div class="col text-center">
+      <span class="bold-text">You won real money</span>
+    </div>
+  </div>
+  <div class="row align-items-left">
+    <div class="col-12">Μεικτά: €{{ instantWin.grossAmount }}</div>
+    <div class="col-12">Φόρος: €{{ instantWin.taxAmount }}</div>
+    <div class="col-12 total-cost bold-text">Τελικό Ποσό: <span class="bold-text">€{{ instantWin.netAmount }}</span></div>
+  </div>
+  <div class="row align-items-left">
+    <div class="col">{{ instantWinInfo.terms }}</div>
+  </div>
+  <div class="row align-items-left">
+    <div class="col">ΚΩΔΙΚΟΙ ΣΥΜΜΕΤΟΧΩΝ: {{ instantWin.IwParticipationsAttempts }}</div>
+  </div>
+  <div class="row horizontal-line-dashed"></div>
+  <div class="row align-items-left">
+    <div class="col-12">ΠΡΑΚΤΟΡΕΙΟ: {{ retailerId}}</div>
+    <div class="col-12">ΣΥΝΑΛΛΑΓΗ: {{ hexCrcCode }}</div>
+    <div class="col-12">ΔΙΑΓΩΝΙΣΜΟΣ: {{ instantWin.promotionId }}</div>
+  </div>
+  <div class="row horizontal-line-dashed"></div>
+  <div class="row">
+    <div class="col-12 bold-text">{{ instantWinInfo.info }}</div>
+    <div class="col-12">{{ gameName }} {{ currentDateTime }}</div>
+    <div class="col-12">ΚΩΔ. ΔΕΛΤΙΟΥ.: {{ wagerId }}</div>
+  </div>
+  <div class="row mb-1 mt-2">
+    <div class="col-12 text-center text-small">{{ companyInfo.name }}</div>
+    <div class="col-12 text-center text-small">{{ companyInfo.address }} {{ companyInfo.gemiNumber }}</div>
+    <div class="col-12 text-center text-small">{{ instantWin.promotionSerialNumber }}</div>
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <img class="image-fluid" style="width: 512px;height: 70px;" src="{{ imageURL }}"/>
+    </div>
+  </div>
+</div>
+</body>
+</html>

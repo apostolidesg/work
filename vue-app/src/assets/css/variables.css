@@ -1,0 +1,145 @@
+:root {
+  --black: #042436;
+  --white: #ffffff;
+  --blue: #0456ee;
+  --light-blue: #5136f9;
+  --lighter-blue: #2983b7;
+  --dark-blue: #10415a;
+  --darker-blue: #123d52;
+  --gradient-blue: linear-gradient(180deg, #17277c 0%, #2465d8 15.1%, #2465d8 85.42%, #17277c 100%);
+  --red: #e2091c;
+  --green: #019642;
+  --magenta: #d70c7f;
+  --yellow: #f5be20;
+  --color-primary-blue: #0b56c3;
+  --color-dark-blue: #003a78;
+  --color-light-blue: #05295d;
+  --color-deeper-blue: #043c86;
+  --color-teal: #00ffdd;
+  --color-yellow: #fac519;
+  --color-orange: #eb6611;
+  --color-orange-light: #ff7b1c;
+  --color-yellow-light: #ffe600;
+  --color-yellow-mid: #ffad1b;
+  --color-yellow-warm: #ffc600;
+  --color-pink: #d50176;
+  --color-pink-light: #ff455e;
+  --color-purple: #7700ee;
+  --color-purple-dark: #21017b;
+  --color-purple-deeper: #7f0064;
+  --color-magenta: #e601e9;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-yellow-warm: #ffc900;
+  --color-orange-light: #ff7b1c;
+  --color-orange-bright: #ffe600;
+  --color-yellow-mid: #ffad1b;
+
+  --gradient-primary: linear-gradient(
+    157.53deg,
+    var(--color-teal) 0%,
+    var(--color-dark-blue) 28.5%,
+    var(--color-primary-blue) 77%,
+    var(--color-yellow) 100%
+  );
+
+  --gradient-kino-border: conic-gradient(from 135deg, #ffc900, #ff7b1c, #ffe600, #ffad1b) border-box;
+  --gradient-kino-card: linear-gradient(0deg, rgba(255, 201, 0, 0.22), rgba(255, 201, 0, 0.22)),
+    radial-gradient(180% 180% at 0% 100%, rgba(255, 123, 28, 0.43) 0%, rgba(255, 123, 28, 0) 100%),
+    radial-gradient(140% 140% at 100% 0%, rgba(255, 230, 0, 0.41) 0%, rgba(255, 230, 0, 0) 100%),
+    radial-gradient(100% 100% at 0% 0%, rgba(255, 173, 27, 0.53) 0%, rgba(255, 173, 27, 0) 100%);
+  --button-kino-gradient: linear-gradient(to bottom, #ffc -50%, #ffad1b);
+
+  --gradient-powerspin-card: linear-gradient(
+      148.42deg,
+      rgba(161, 66, 255, 0.44) 8.42%,
+      rgba(119, 49, 189, 0.154) 49.64%,
+      rgba(96, 40, 153, 0) 86.97%
+    ),
+    radial-gradient(
+      180% 180% at 0% 100%,
+      rgba(255, 69, 94, 0.21) 0%,
+      rgba(255, 42, 169, 0) 100%,
+      rgba(255, 69, 94, 0) 100%
+    ),
+    radial-gradient(140% 140% at 100% 0%, rgba(33, 1, 123, 0.3) 0%, rgba(44, 2, 85, 0) 100%),
+    radial-gradient(100% 100% at 100% 100%, rgba(127, 0, 99, 0.3) 0%, rgba(127, 0, 99, 0) 100%),
+    radial-gradient(100% 100% at 0% 0%, rgba(119, 0, 238, 0.3) 0%, rgba(119, 0, 238, 0) 100%);
+  --button-powerspin-gradient: linear-gradient(to bottom, #ffc -40%, #7700ee 50%, #ff455e 150%);
+  --gradient-powerspin-border: conic-gradient(from 135deg, #e601e9, #003a78, #d50176, #0b56c3, #e601e9) border-box;
+  --gradient-secondary: radial-gradient(circle at top left, #0b0084, transparent 15%),
+    linear-gradient(to top right, #0162ff 0%, #0162ff 50%, #0a98fe 100%);
+  --header-background-gradient: radial-gradient(
+    95.47% 946.48% at 4.53% 50.77%,
+    rgba(255, 255, 255, 0.41) 0%,
+    rgba(22, 51, 122, 0.369) 100%
+  );
+  --gradient-popup: linear-gradient(
+    294deg,
+    var(--color-yellow) 12%,
+    var(--color-dark-blue) 20%,
+    var(--color-primary-blue) 65.061%,
+    var(--color-teal) 100%
+  );
+
+  --border-radius-sm: 0.5rem;
+  --border-radius-md: 1.875rem;
+  --border-radius-lg: 2.5rem;
+  --border-radius-asymmetric: 50px 50px 0rem 50px;
+
+  --border-width: 0.3125rem;
+  --border-small: 0.1875rem;
+
+  --game-height: 33.25rem;
+  --game-height-incr-2: 36.89rem;
+  --game-width: 27.375rem;
+  --button-height: 5.5rem;
+  --button-width: 16.5rem;
+  --bettie-button-width: 13.7rem;
+  --bettie-button-height: 5.5rem;
+  --learn-button-width: 23rem;
+  --learn-button-height: 5.5rem;
+
+  --font-size-xs: 1rem;
+  --font-size-sm: 1.25rem;
+  --font-size-md: 1.55rem;
+  --font-size-lg: 2rem;
+  --font-size-xl: 3rem;
+
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+
+  --card-width: 25.125rem;
+
+  --color-quickbets-draw-selector-bg: rgba(3, 15, 55, 0.4);
+  --color-button-green-start: #1ab53c;
+  --color-button-green-end: #067113;
+  --color-button-hover-yellow: #eab308;
+  --color-kino-button-border: #f3691e;
+  --color-kino-quick-play-bg-start: #001c3e;
+  --color-kino-quick-play-bg-end: #071d49;
+  --color-kino-price-yellow: #facc15;
+  --color-kino-card-bg-yellow-alpha: rgba(255, 255, 0, 0.1);
+  --color-kino-card-bg-yellow-warm-alpha: rgba(255, 204, 0, 0.1);
+  --color-black-alpha-30: rgba(0, 0, 0, 0.3);
+  --color-grey-border-start: #cbcbcb;
+  --color-grey-border-end-alpha: rgba(151, 151, 151, 0);
+  --quickplay-dark-blue: #030F37;
+  ;
+
+  /*
+
+  FAQ
+
+  */
+
+  --faq-background: linear-gradient(0deg, rgba(11, 86, 195, 0.4), rgba(11, 86, 195, 0.4)),
+    radial-gradient(100% 100% at 0% 0%, rgba(24, 2, 85, 0.4) 0%, rgba(14, 2, 85, 0) 100%),
+    radial-gradient(100% 100% at 100% 0%, rgba(0, 229, 255, 0.4) 0%, rgba(0, 229, 255, 0) 100%),
+    radial-gradient(100% 100% at 0% 100%, rgba(10, 199, 254, 0.4) 0%, rgba(10, 199, 254, 0) 100%);
+
+  --faq-first: linear-gradient(118.53deg, #00ffdd 25%, #003a78 28.5%, #0b56c3 67%, #fac519 80%);
+}

@@ -1,0 +1,49 @@
+import dayjs from 'dayjs';
+import { createLogger, format, transports } from 'winston';
+import 'winston-daily-rotate-file';
+import LoggerFoldersGenerator from './LoggerFoldersGenerator';
+
+const appendTimestamp = format(info => {
+  info.timestamp = dayjs().format();
+  return info;
+});
+
+/**
+ * Logger for the Application
+ */
+export const logger = createLogger({
+  transports: [
+    new transports.Console({
+      format: format.combine(
+        format.colorize(),
+        appendTimestamp(),
+        format.align(),
+        format.printf(i => {
+          return `${JSON.stringify(i.timestamp)} ${JSON.stringify(i.level)}: ${JSON.stringify(i.message)}`;
+        }),
+      ),
+      level: 'debug',
+      handleExceptions: true,
+      json: false,
+      colorize: true,
+    }),
+    new transports.DailyRotateFile({
+      level: 'info',
+      filename: 'application-%DATE%.log',
+      dirname: LoggerFoldersGenerator.loggerPaths.general,
+      datePattern: 'YYYY-MM-DD',
+      handleExceptions: true,
+      zippedArchive: true,
+      maxFiles: '30d',
+      maxSize: '20m',
+      format: format.combine(
+        appendTimestamp(),
+        format.align(),
+        format.printf(i => {
+          return `${JSON.stringify(i.timestamp)} ${JSON.stringify(i.level)}: ${JSON.stringify(i.message)}`;
+        }),
+      ),
+    }),
+  ],
+  level: 'debug',
+});

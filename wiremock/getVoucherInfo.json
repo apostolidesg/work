@@ -1,0 +1,17 @@
+{
+  "request" : {
+    "url" : "/web/voucher?voucherCode=111111111111111111111111111111",
+    "method" : "GET",
+	"headers" : {
+      "Authorization" : { "equalTo" : "Bearer 94a47ffa-834a-4d03-a688-1c9b111133bb"}
+	}
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"status\":\"new\",\"amount\":100}",
+    "headers" : {
+      "Content-Type": "application/json;charset=UTF-8",
+      "Connection": "keep-alive"
+    }
+  }
+}

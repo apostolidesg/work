@@ -1,0 +1,27 @@
+{
+  "id" : "94a47ffa-834a-4d03-a688-1c9b121324aa",
+  "name" : "ssbt_place_bet",
+  "request" : {
+    "url" : "/web/wallet/cashout",
+    "method" : "POST",
+	"headers" : {
+		"Authorization" : { "equalTo" : "Bearer 94a47ffa-834a-4d03-a688-1c9b111133bb"},
+		"Content-Type" : { "equalTo" : "application/json"}
+	},
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"ssbtId\":\"104-ssbt-01\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"status\":\"confirmed\",\"retailerId\":110125,\"operatorId\":\"000001\",\"cost\":\"0.50\",\"currentDate\":\"2018-08-06\",\"serialNumber\":\"89641534\",\"voucherCode\":\"L50024585332\"}",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 05 Sep 2017 13:56:36 GMT"
+    }
+  },
+  "uuid" : "94a47ffa-834a-4d03-a688-1c9b121324aa",
+  "persistent" : true
+}

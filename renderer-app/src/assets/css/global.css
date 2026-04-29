@@ -1,0 +1,134 @@
+@import 'tailwindcss' prefix(atw);
+
+@theme {
+  --color-kino: #f5be20;
+  --color-powerspin: #2e1e93;
+  --color-eurojackpot: #f4d795;
+  --color-fireblaze: #b20248;
+  --color-main-background: #00a1dd;
+  --color-primary: var(--app-color-primary);
+  --color-secondary: var(--app-color-secondary);
+  --color-jackpotAmountColor: var(--app-color-jackpotAmountColor);
+}
+
+:root,
+.theme-default {
+  --app-color-primary: #000;
+  --app-color-secondary: #fff;
+  --app-color-jackpotAmountColor: #000;
+
+  --header-height: 100px;
+
+  --sidebar: oklch(0.985 0 0);
+  --sidebar-foreground: oklch(0.145 0 0);
+  --sidebar-primary: #030213;
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.97 0 0);
+  --sidebar-accent-foreground: oklch(0.205 0 0);
+  --sidebar-ring: oklch(0.708 0 0);
+
+  --sidebar-bg: #1d4757;
+  --sidebar-border: 1px solid #fff;
+  --sidebar-backdrop: blur(18px);
+  --sidebar-icon-color: rgb(191, 247, 255);
+  --sidebar-hover: transparent;
+  --sidebar-border: #0186c4;
+
+  /* Primary brand colors */
+  --ejp-color-primary-yellow: #f1c118;
+  --ejp-color-primary-gold: #af8445;
+  --ejp-color-secondary-gold: #ffde7e;
+  --ejp-color-third-gold: #fff0a4;
+  --ejp-color-primary-black: #211f1f;
+  --ejp-color-secondary-black: #24231e;
+  --ejp-color-third-black: #555555;
+  --ejp-color-primary-brown: #6e440e;
+  --ejp-color-secondary-brown: #2d210b;
+  --ejp-color-third-brown: #523d14;
+
+  /* Button colors */
+  --ejp-color-button-main: #fae291;
+  --ejp-color-button-euro: #d4af37;
+  --ejp-color-button-close-modal: #fbe2a1;
+  --ejp-color-button-add-board-text: #fae291;
+  --ejp-color-button-add-board-background: #523d14;
+
+  /* Gradients */
+  --ejp-gradient-dark: linear-gradient(180deg, #000000 10.22%, #2e2c21 78.25%);
+  --ejp-gradient-light: linear-gradient(180deg, #ffde7e 53.12%, #99762f 100%);
+  --ejp-gradient-modal: linear-gradient(256.37deg, #523d14 4.39%, #523d14 77.77%, #523d14 98.32%);
+
+  --color-submit-green: #00b80a;
+  --color-submit-green-light: #06dc1d;
+  --color-primary-white: #ffffff;
+  --color-primary-black: #1a1a1a;
+
+  /* Vue-app compatible variables (from variables.css) */
+  --black: #042436;
+  --white: #ffffff;
+  --blue: #0456ee;
+  --light-blue: #5136f9;
+  --lighter-blue: #2983b7;
+  --dark-blue: #10415a;
+  --darker-blue: #123d52;
+  --gradient-blue: linear-gradient(180deg, #17277c 0%, #2465d8 15.1%, #2465d8 85.42%, #17277c 100%);
+  --red: #e2091c;
+  --green: #019642;
+  --magenta: #d70c7f;
+  --yellow: #f5be20;
+
+  /* Powerspin colors */
+  --powerspin-color-primary: #2e1e93;
+  --powerspin-color-primary-dark: #17277c;
+  --powerspin-color-accent: #5136f9;
+  --powerspin-color-accent-light: #7b68ee;
+  --powerspin-color-text-primary: #ffffff;
+  --powerspin-color-text-secondary: #6b7280;
+  --powerspin-color-surface-light: #d3edfd;
+  --powerspin-color-surface-dark: #1b2f9e;
+  --powerspin-color-red: #f44336;
+  --powerspin-color-green: #4caf50;
+  --powerspin-color-blue: #2196f3;
+
+  /* Powerspin gradients */
+  --powerspin-gradient-light: linear-gradient(180deg, #d3edfd 0%, #f5fbfe 14.06%, #f4fafe 89.58%, #d3edfd 100%);
+  --powerspin-gradient-dark: linear-gradient(180deg, #17277c 0%, #2e1e93 15.1%, #2e1e93 85.42%, #17277c 100%);
+  --powerspin-gradient-header-light: linear-gradient(180deg, #d3edfd 0%, #f5fbfe 14.06%, #f4fafe 89.58%, #d3edfd 100%);
+  --powerspin-gradient-header-dark: linear-gradient(180deg, #17277c 0%, #1b2f9e 15.1%, #1b2f9e 85.42%, #17277c 100%);
+
+  /* Fireblaze colors */
+  --fireblaze-color-primary-white: #ffffff;
+  --fireblaze-color-third-crimson: #c30350;
+  --fireblaze-color-third-purple: rgba(55, 0, 139, 0.588);
+  --fireblaze-color-third-pink: #b20248;
+  --fireblaze-color-third-yellow: #f89d1c;
+  --fireblaze-color-third-dark-red: #b10207;
+  --fireblaze-color-third-brown-opacity: rgba(82, 61, 20, 0.3);
+
+  /* Fireblaze gradients */
+  --fireblaze-gradient-pink-purple: linear-gradient(0deg, #541fef 40%, #d50759 110%);
+  --fireblaze-gradient-dark-pink-purple: linear-gradient(180deg, #9b0773 0%, #5f1ce1 100%);
+  --fireblaze-gradient-purple: linear-gradient(180deg, #853bff 0%, #2f0f8e 100%);
+  --fireblaze-gradient-light-gold: linear-gradient(90deg, #fcf196 2.52%, #ba6928 14.64%, #ffda7d 78.29%, #b85e28 87.38%);
+  --fireblaze-gradient-dark-pink: linear-gradient(180deg, #ff1d90 0%, #9b0773 53.12%);
+  --fireblaze-gradient-dark-red: radial-gradient(49.88% 50.63% at 49.99% 47.02%, #a5163e 0%, #680c28 76.72%);
+}
+
+.theme-dark,
+.dark {
+  --app-color-primary: #fff;
+  --app-color-secondary: #fff;
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+/* Popover Themes */
+.popover-success {
+  --popover-bg: #14532d;
+  --popover-color: #dcfce7;
+}

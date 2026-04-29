@@ -1,0 +1,14 @@
+export {default as kinoBetslipTemplateEl}  from './kinoBetslip/el/main.html';
+export {default as kinoBetslipTemplateEn} from './kinoBetslip/en/main.html';
+export {default as kinoBetslipTemplateL10El} from './kinoBetslip/el/mainL10.html';
+export {default as kinoBetslipTemplateL10En} from './kinoBetslip/en/mainL10.html';
+export {default as voucherTemplateEl} from './voucher/el/main.html';
+export {default as voucherTemplateEn} from './voucher/en/main.html';
+export {default as powerspinBetslipTemplateEl} from './powerspinBetslip/el/main.html'
+export {default as powerspinBetslipTemplateEn} from './powerspinBetslip/en/main.html'
+export {default as eurojackpotBetslipTemplateEl} from './eurojackpot/el/main.html'
+export {default as eurojackpotBetslipTemplateEn} from './eurojackpot/en/main.html'
+export {default as fireblazeBetslipTemplateEl} from './fireblaze/el/main.html'
+export {default as fireblazeBetslipTemplateEn} from './fireblaze/en/main.html'
+export {default as instantWinVoucherTemplateEl} from './instantWin/el/main.html'
+export {default as instantWinVoucherTemplateEn} from './instantWin/en/main.html'

@@ -1,0 +1,27 @@
+{
+  "id" : "94a47ffa-834a-4d03-a688-1c9b111133bb",
+  "name" : "ssbt_get_token",
+  "request" : {
+    "url" : "/web/access/oidc/token",
+    "method" : "POST",
+	"headers" : {
+		"Authorization" : { "equalTo" : "Basic YmV0d2FyZTpodHRwczovL2ppcmEuYmV0d2FyZS5jb20vYnJvd3NlL0JXSU1EQ0QtMzcx"},
+		"Content-Type" : { "equalTo" : "application/json"}
+	},
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"grant_type\":\"retailer.terminal-voucher\",\"ssbtId\":\"104-ssbt-01\",\"voucherCode\":\"111111111111111111111111111111\"}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"access_token\":\"94a47ffa-834a-4d03-a688-1c9b111133bb\"}",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 05 Sep 2017 13:56:36 GMT"
+    }
+  },
+  "uuid" : "94a47ffa-834a-4d03-a688-1c9b111133bb",
+  "persistent" : true
+}

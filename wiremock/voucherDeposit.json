@@ -1,0 +1,27 @@
+{
+  "id" : "94a47ffa-834a-4d03-a688-1c9b333344cc",
+  "name" : "ssbt_deposit_voucher",
+  "request" : {
+    "url" : "/web/wallet/voucher/deposit",
+    "method" : "POST",
+	"headers" : {
+		"Authorization" : { "equalTo" : "Bearer 94a47ffa-834a-4d03-a688-1c9b111133bb"},
+		"Content-Type" : { "equalTo" : "application/json"}
+	},
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"ssbtId\":\"104-ssbt-01\",\"voucherCode\":\"111111111111111111111111111111\", \"amount\":100}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"status\":\"confirmed\"}",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 05 Sep 2017 13:56:36 GMT"
+    }
+  },
+  "uuid" : "94a47ffa-834a-4d03-a688-1c9b333344cc",
+  "persistent" : true
+}

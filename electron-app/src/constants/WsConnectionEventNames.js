@@ -1,0 +1,15 @@
+export const WsConnectionEventNames = {
+  WS_STATUS: 'ws-status',
+  CONNECTED: 'connected',
+  DISCONNECTED: 'disconnected',
+  RECONNECTING: 'reconnecting',
+  RECONNECT_FAILED: 'reconnect-failed',
+  WS_CONNECTION_FAILED: 'ws-connection-failed',
+  WS_ERROR: 'ws-error',
+  HAL_RESPONSE: 'hal-response',
+  WS_HAL_RESPONSE: 'ws-hal-response',
+  CONNECT_WS: 'connect-ws',
+  DISCONNECT_WS: 'disconnect-ws',
+  SEND_WS_MESSAGE: 'send-ws-message',
+  WS_REQUEST: 'ws-request',
+};

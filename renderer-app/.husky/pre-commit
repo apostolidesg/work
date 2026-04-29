@@ -1,0 +1,2 @@
+cd renderer-app
+npx lint-staged

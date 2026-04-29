@@ -1,0 +1,29 @@
+@import "./colors.scss";
+
+@mixin light-background {
+  height: 100%;
+  background: rgba(45, 33, 11, 0.3) linear-gradient(180deg, #ffde7e 53.12%, #99762f 100%);
+  background-blend-mode: multiply;
+}
+
+@mixin dark-background {
+  height: 100%;
+  background: linear-gradient(180deg, #000000 10.22%, #2e2c21 78.25%), linear-gradient(0deg, #fae291, #fae291);
+}
+
+@mixin  eurojackpot-modal-background {
+  background: linear-gradient(256.37deg, #523D14 4.39%, #523D14 77.77%, #523D14 98.32%);
+  background-blend-mode: multiply;
+}
+
+@mixin eurojackpot-modal-button {
+  background: $color-gradient-dark;
+  border: 2px solid #fae291;
+  color: white;
+  font-weight: 400;
+  font-size: 0.9rem;
+  border-radius: 10px;
+}
+
+
+

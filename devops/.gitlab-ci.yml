@@ -1,0 +1,190 @@
+stages:
+  - build_app
+  - package_electron
+  - qa_test
+
+variables:
+  action:
+    value: "build"
+    options:
+      - "build"
+      - "build-RDG"                       # build with RDG renderer
+      - "qa-test-playwright"              # run all Playwright tests
+      - "qa-test-playwrightBETTIETrue"    # run ONLY bettie tests
+      - "qa-test-playwrightBETTIEFalse"   # run everything EXCEPT bettie
+      - "qa-test-playwrightRDG"           # run ONLY RDG
+    description: "Build for steps build and qa_test for step qa_test"
+
+  testsFilter:
+    value: ""
+    description: "Options: all | functional | visual | path/to/spec.js -imatch = case-insensitive"
+
+  updateSnapshots:
+    value: "false"
+    options:
+      - "false"
+      - "true"
+    description: "Decide weather or not it updates snapshots (True/False)"
+
+workflow:
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "web"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "schedule"
+      when: always
+    - if: $CI_PIPELINE_SOURCE == "push"
+      when: always
+
+build_vue_app:
+  stage: build_app
+  rules:
+    - if: '$action == "build" || $action == "build-RDG"'
+  tags:
+    - ssbt_gitlab_agent
+  script:
+    - cd vue-app
+    - ls
+    - nodist use 22.14.0
+    - nodist list
+    - nodist npm
+    - node -v
+    - npm -v
+    - npm config ls
+    - npm ci
+    - npm run build-test
+    - ls
+    - ls ../electron-app/dist/
+    - npm run unit
+  artifacts:
+    paths:
+      - vue-app/test/unit/coverage/lcov-report/
+      - electron-app/dist/
+    expire_in: 1 hour
+
+build_renderer_app:
+  stage: build_app
+  rules:
+    - if: '$action == "build-RDG"'
+  tags:
+    - ssbt_gitlab_agent
+  script:
+    - cd renderer-app
+    - ls
+    - nodist use 22.14.0
+    - nodist list
+    - nodist npm
+    - node -v
+    - npm -v
+    - npm config ls
+    - npm ci
+    - npm run build
+    - ls
+    - ls ../electron-app/dist/
+    - npm run test:unit
+  artifacts:
+    paths:
+      - vue-app/test/unit/coverage/lcov-report/
+      - electron-app/dist/
+    expire_in: 1 hour
+
+package_electron:
+  stage: package_electron
+  rules:
+    - if: '$action == "build" || $action == "build-RDG"'
+  tags:
+    - ssbt_gitlab_agent
+  script:
+    - cd electron-app
+    - ls
+    - nodist use 22.14.0
+    - nodist list
+    - node -v
+    - npm --version
+    - npm config ls
+    - ls
+    - npm ci
+    - npm run unit
+    - npm run make-win
+  artifacts:
+    paths:
+      - electron-app/release/*.zip
+      - electron-app
+    expire_in: 2 days
+
+# Run QA Tests with playwright (all variants via $action)
+qa_test:
+  stage: qa_test
+  rules:
+    - if: '$action == "qa-test-playwright"'
+    - if: '$action == "qa-test-playwrightBETTIETrue"'
+    - if: '$action == "qa-test-playwrightBETTIEFalse"'
+    - if: '$action == "qa-test-playwrightRDG"'
+    - when: never
+  tags:
+    - ssbt_gitlab_agent
+  script:
+    - 'Write-Host "Final Variables: npm run action = $env:action -- testsFilter = $env:testsFilter updateSnapshots = $env:updateSnapshots"'
+    - nodist use 22.14.0
+    - cd ./vue-app/
+    - npm ci
+    - npm run build-test
+    - |
+      $currentAction = [string]$env:action
+      if ($currentAction.Trim() -eq "qa-test-playwrightRDG") {
+        Write-Host ">>> ENTERED RDG BLOCK"
+        Push-Location ../renderer-app
+        npm ci
+        npm run build
+        Pop-Location
+      }
+      else {
+        Write-Host ">>> SKIPPED RDG BLOCK"
+      }
+    - cd ../electron-app/
+    - npm ci
+    - npm run package-win
+    # 1) Select npm script based on the action
+    - |
+      switch ($env:action) {
+        "qa-test-playwright"           { $env:PLAYWRIGHT_CMD = "test:playwrightAll"; break }
+        "qa-test-playwrightBETTIETrue" { $env:PLAYWRIGHT_CMD = "test:playwrightBETTIETrue"; break }
+        "qa-test-playwrightBETTIEFalse"{ $env:PLAYWRIGHT_CMD = "test:playwrightBETTIEFalse"; break }
+        "qa-test-playwrightRDG"        { $env:PLAYWRIGHT_CMD = "test:playwrightRDG"; break }
+        default                        { $env:PLAYWRIGHT_CMD = "test:playwrightAll" }
+      }
+    # 2) Filter tests by testsFilter
+    - |
+      if ($env:testsFilter -ilike "functional*") {
+        $env:PLAYWRIGHT_VISUAL = '--grep-invert @visual'
+      }
+      elseif ($env:testsFilter -ilike "visual*") {
+        $env:PLAYWRIGHT_VISUAL = '-g "@visual"'
+      }
+      elseif ($env:testsFilter -imatch '\.spec\.js[ ]?$') {
+        $env:PLAYWRIGHT_CMD = "test:playwrightAll"
+        $env:PLAYWRIGHT_VISUAL = $env:testsFilter
+      }
+      else {
+        $env:PLAYWRIGHT_VISUAL = ""
+      }
+    # 3) Rebaseline from updateSnapshots
+    - |
+      if ($env:updateSnapshots -eq "true") {
+        $env:PLAYWRIGHT_ARGS = "--update-snapshots"
+        Remove-Item -Recurse -Force "playwright\screenshots"
+      } else {
+        $env:PLAYWRIGHT_ARGS = ""
+      }
+
+    # 4) Final command — uses your npm scripts
+    - 'Write-Host "Final command: npm run $env:PLAYWRIGHT_CMD -- $env:PLAYWRIGHT_VISUAL $env:PLAYWRIGHT_ARGS"'
+    - npm run $env:PLAYWRIGHT_CMD -- $env:PLAYWRIGHT_VISUAL $env:PLAYWRIGHT_ARGS
+  artifacts:
+    when: always
+    reports:
+      junit:
+        - electron-app/playwright/reports/test-results-junit/results.xml
+    paths:
+      - electron-app/playwright/reports/
+      - electron-app/playwright/screenshots/
+    expire_in: 1 week

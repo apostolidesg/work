@@ -1,0 +1,27 @@
+{
+  "id" : "94a47ffa-834a-4d03-a688-1c9b333344ca",
+  "name" : "ssbt_place_bet",
+  "request" : {
+    "url" : "/web/wager/rest/v1/wagers/717500613/play/kino",
+    "method" : "POST",
+    "headers" : {
+      "Authorization" : { "equalTo" : "Bearer 94a47ffa-834a-4d03-a688-1c9b111133bb"},
+      "Content-Type" : { "equalTo" : "application/json"}
+    },
+    "bodyPatterns" : [ {
+      "equalToJson" : "{\"betslip\":{\"bet_areas\":[{\"id\":1,\"name\":\"area_1\",\"activeArea\":true,\"filled\":true,\"gameType\":2,\"pickedNumbers\":[1,2],\"multiplier\":2,\"kinoBonusActive\":false,\"value\":1},{\"id\":2,\"name\":\"area_2\",\"activeArea\":false,\"filled\":false,\"gameType\":0,\"pickedNumbers\":[],\"multiplier\":1,\"kinoBonusActive\":false,\"value\":0},{\"id\":3,\"name\":\"area_3\",\"activeArea\":false,\"filled\":false,\"gameType\":0,\"pickedNumbers\":[],\"multiplier\":1,\"kinoBonusActive\":false,\"value\":0},{\"id\":4,\"name\":\"area_4\",\"activeArea\":false,\"filled\":false,\"gameType\":0,\"pickedNumbers\":[],\"multiplier\":1,\"kinoBonusActive\":false,\"value\":0},{\"id\":5,\"name\":\"area_5\",\"activeArea\":false,\"filled\":false,\"gameType\":0,\"pickedNumbers\":[],\"multiplier\":1,\"kinoBonusActive\":false,\"value\":0},{\"id\":6,\"name\":\"area_6\",\"activeArea\":false,\"filled\":false,\"gameType\":0,\"pickedNumbers\":[],\"multiplier\":1,\"kinoBonusActive\":false,\"value\":0}],\"areasInUse\":[],\"consecutiveDraws\":2,\"qrCode\":\"\",\"oddEvenGame\":{\"oddEven\":\"\",\"oddEvenAmount\":[],\"value\":0},\"columnsGame\":{\"columns\":[],\"columnsAmount\":[],\"value\":0},\"value\":2}}",
+      "ignoreArrayOrder" : true,
+      "ignoreExtraElements" : true
+    } ]
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "{\"status\":\"confirmed\",\"multipleDraws\":2,\"firstDraw\":\"11200\",\"lastDraw\":\"11200\",\"cost\":\"2.00\",\"retailerId\":\"110125\",\"operatorId\":\"000001\",\"columns\":\"6\",\"clCat\":\"690818\",\"num\":\"13562\",\"controlCode\":\"476EFEBF\",\"serialNumber\":\"11111222223333344444555556666677777\",\"bets\":[{\"numbers\":[1,2],\"multiplier\":2,\"kinoBonusActive\":false,\"quickPick\":false}]}",
+    "headers" : {
+      "Content-Type" : "application/json",
+      "Date" : "Tue, 05 Sep 2017 13:56:36 GMT"
+    }
+  },
+  "uuid" : "94a47ffa-834a-4d03-a688-1c9b333344ca",
+  "persistent" : true
+}
