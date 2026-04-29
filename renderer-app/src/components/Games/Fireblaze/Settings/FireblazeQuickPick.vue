@@ -29,8 +29,6 @@ const t = (key) => instance?.proxy?.$t(key) ?? key;
 
 .fireblaze-quickpick__info {
   @apply atw:mb-2;
-  font-size: 13.5px;
-  font-weight: 500;
 }
 
 .fireblaze-quickpick__button {
@@ -44,7 +42,5 @@ const t = (key) => instance?.proxy?.$t(key) ?? key;
 
 .fireblaze-quickpick__button-info {
   margin: 0 1em;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 900;
 }
 </style>
