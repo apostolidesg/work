@@ -62,7 +62,5 @@ function checkIfEmptyAndSetIndex(index) {
 
 .fireblaze-selections-list :deep(.add-board-button) {
   border: solid 2px var(--fireblaze-color-primary-white);
-  color: var(--fireblaze-color-primary-white);
-  background: transparent;
 }
 </style>
