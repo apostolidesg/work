@@ -34,7 +34,6 @@ defineEmits(['click']);
   position: relative;
   z-index: 1;
   background: var(--fireblaze-gradient-dark-pink);
-  color: var(--fireblaze-color-third-pink);
   cursor: pointer;
 }
 
