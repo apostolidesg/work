@@ -65,7 +65,6 @@ function betTypeToId(betType) {
 
 .fireblaze-options__header-info {
   min-height: 75px;
-  font-size: 13.5px;
 }
 
 .fireblaze-options__numbers {
