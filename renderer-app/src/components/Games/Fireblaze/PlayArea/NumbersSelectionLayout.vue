@@ -28,7 +28,7 @@
 }
 
 .number-selection-layout__header-numbers {
-  color: var(--fireblaze-color-third-yellow);
+  color: #F1C118;
 }
 
 .number-selection-layout__number-wrapper {
