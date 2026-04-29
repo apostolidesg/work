@@ -106,7 +106,6 @@ const mainNumbers = computed(() => props.board.panels[0].selection);
 .fireblaze-selections__header {
   display: flex;
   justify-content: space-between;
-  font-size: 13px;
 }
 
 .fireblaze-selections__header-cost,
