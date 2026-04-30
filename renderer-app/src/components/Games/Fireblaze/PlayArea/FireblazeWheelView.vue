@@ -110,7 +110,7 @@ function numberSelected(number) {
 }
 
 .fireblaze-wheel__item :deep(.fireblaze-number-button__number) {
-  font-size: 22px;
+  font-size: 18px;
 }
 
 .fireblaze-wheel__item :deep(.fireblaze-number-button__stat) {
