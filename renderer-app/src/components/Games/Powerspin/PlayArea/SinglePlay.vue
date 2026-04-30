@@ -246,7 +246,7 @@ function handleToggleSymbol() {
   background: linear-gradient(180deg, #d3edfd 0%, #f5fbfe 14.06%, #f4fafe 89.58%, #d3edfd 100%);
   background-size: 100%;
   position: relative;
-  z-index: 100;
+  z-index: 1;
 }
 
 .single-play::before {
@@ -259,7 +259,7 @@ function handleToggleSymbol() {
   left: 0;
   opacity: 0;
   width: 100%;
-  z-index: -100;
+  z-index: -1;
   transition: opacity 0.35s;
 }
 

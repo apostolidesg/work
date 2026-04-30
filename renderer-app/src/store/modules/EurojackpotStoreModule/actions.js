@@ -1,4 +1,7 @@
 import types from './types';
+import configurationStoreTypes from '../ConfigurationStoreModule/types';
+import ApiUrls from '@/util/api-urls';
+import Constants from '@/util/Constants';
 
 const actions = {
   [types.actions.SET_BETSLIP]({ commit }, { betslip } = {}) {
@@ -34,12 +37,34 @@ const actions = {
   [types.actions.RESET_BETSLIP]({ commit }) {
     commit(types.mutations.RESET_BETSLIP);
   },
-  // TODO: Add draw info API actions when needed
-  // [types.actions.GET_DRAW_INFO]({ commit, rootGetters, dispatch }) { },
-  // [types.actions.SET_SALES_OPEN]({ commit }, { apiResponse } = {}) { },
-  // [types.actions.SET_SALES_CLOSED]({ commit }) { },
-  // [types.actions.CLEAR_TIMER]({ commit, state }) { },
-  // [types.actions.GET_STATISTICS]({ commit, rootGetters }) { },
+  async [types.actions.GET_STATISTICS]({ commit, rootGetters }) {
+    const statisticsApiBaseUrl = rootGetters[configurationStoreTypes.namespaceMapper.GET_STATISTICS_API_HOST];
+    const url = new ApiUrls('', '', Constants.GAME_IDS.EUROJACKPOT, statisticsApiBaseUrl).DRAW_API_STATISTICS.replace(
+      '{drawRangeNumber}',
+      Constants.DRAW_RANGE.EUROJACKPOT
+    );
+
+    try {
+      const result = await fetch(url);
+      const data = await result.json();
+
+      if (!data.numbers || !data.numbersPanel2) throw new Error('Invalid statistics response');
+
+      const mainNumbers = data.numbers.reduce((acc, curr) => {
+        acc[curr.number] = { occurrences: curr.occurrences, delays: curr.delays };
+        return acc;
+      }, {});
+
+      const euroNumbers = data.numbersPanel2.reduce((acc, curr) => {
+        acc[curr.number] = { occurrences: curr.occurrences, delays: curr.delays };
+        return acc;
+      }, {});
+
+      commit(types.mutations.SET_STATISTICS, { statistics: { mainNumbers, euroNumbers } });
+    } catch {
+      commit(types.mutations.RESET_STATISTICS);
+    }
+  },
   [types.actions.SET_STATISTICS_SELECTION]({ commit }, { selection } = {}) {
     commit(types.mutations.SET_STATISTICS_SELECTION, { selection });
   },

@@ -1,23 +1,46 @@
 <script setup>
-import { computed } from 'vue';
+import { computed, onMounted, getCurrentInstance } from 'vue';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { faTrashAlt } from '@fortawesome/free-regular-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import EurojackpotNumberSelections from './EurojackpotNumberSelections.vue';
+import TristateSwitch from '@/components/Common/TristateSwitch.vue';
 import EurojackpotConstants from '@/util/eurojackpot/Constants.js';
 import { useEurojackpot } from '@/composables/useEurojackpot';
 
 library.add(faTrashAlt);
 
-const { selectedBoard, statistics, statisticsSelection, setMainSelection, setEuroSelection, clearSelectedBoard } =
-  useEurojackpot();
+const instance = getCurrentInstance();
+const t = (key) => instance?.proxy?.$t(key) ?? key;
+
+const {
+  selectedBoard,
+  statistics,
+  statisticsSelection,
+  setMainSelection,
+  setEuroSelection,
+  clearSelectedBoard,
+  setStatisticsSelection,
+  getStatistics,
+} = useEurojackpot();
 
 const mainNumberSelections = computed(() => selectedBoard.value?.panels[0]?.selection || []);
 const euroNumberSelections = computed(() => selectedBoard.value?.panels[1]?.selection || []);
 const selectedSystemId = computed(() => selectedBoard.value?.systemId || null);
 
+const switchOptions = Object.values(EurojackpotConstants.STATISTICS_SELECTIONS);
+
 const clearButtonDisabled = computed(() => {
   return selectedBoard.value?.isEmpty() ?? true;
+});
+
+const currentStatisticsSelection = computed({
+  get() {
+    return statisticsSelection.value;
+  },
+  set(value) {
+    setStatisticsSelection(value);
+  },
 });
 
 const getNumbers = (type) => {
@@ -56,6 +79,10 @@ const toggleEuroNumber = (number) => {
 const handleClearBoard = () => {
   clearSelectedBoard();
 };
+
+onMounted(() => {
+  getStatistics();
+});
 </script>
 
 <template>
@@ -75,11 +102,12 @@ const handleClearBoard = () => {
     </div>
     <div class="eurojackpot-play-area__footer">
       <div class="eurojackpot-play-area__statistics">
-        <div class="eurojackpot-play-area__statistics-title">ΣΤΑΤΙΣΤΙΚΑ</div>
-        <div class="eurojackpot-play-area__statistics-toggle">
-          <span>ΕΜΦΑΝΙΣΕΙΣ</span>
-          <span>ΚΑΘΥΣΤΕΡΗΣΕΙΣ</span>
-        </div>
+        <div class="eurojackpot-play-area__statistics-title">{{ t('eurojackpot.statistics.title') }}</div>
+        <TristateSwitch
+          :options="switchOptions"
+          :left-label="t('eurojackpot.statistics.occurrences')"
+          :right-label="t('eurojackpot.statistics.delays')"
+          v-model="currentStatisticsSelection" />
       </div>
       <div class="eurojackpot-play-area__footer-clear">
         <div class="eurojackpot-play-area__clear-label">ΚΑΘΑΡΙΣΜΟΣ</div>
@@ -121,13 +149,6 @@ const handleClearBoard = () => {
   border-bottom: 1px solid rgba(234, 220, 192, 0.3);
 }
 
-.eurojackpot-play-area__statistics-toggle {
-  @apply atw:flex;
-  gap: 30px;
-  font-family: 'Roboto', sans-serif;
-  font-size: 12px;
-  color: #888888;
-}
 
 .eurojackpot-play-area__footer-clear {
   @apply atw:inline-flex atw:flex-col atw:items-center atw:font-black;

@@ -105,6 +105,9 @@ export function useEurojackpot() {
   const setStatisticsSelection = (selection) =>
     store.dispatch(`${MODULE_PATH}/${eurojackpotModuleTypes.actions.SET_STATISTICS_SELECTION}`, { selection });
 
+  const getStatistics = () =>
+    store.dispatch(`${MODULE_PATH}/${eurojackpotModuleTypes.actions.GET_STATISTICS}`);
+
   const getBoardCost = (index) => {
     return store.getters[`${MODULE_PATH}/${eurojackpotModuleTypes.getters.GET_BOARD_COST}`]({ index });
   };
@@ -139,6 +142,7 @@ export function useEurojackpot() {
     setSystem,
     resetBetslip,
     setStatisticsSelection,
+    getStatistics,
     getBoardCost,
   };
 }
