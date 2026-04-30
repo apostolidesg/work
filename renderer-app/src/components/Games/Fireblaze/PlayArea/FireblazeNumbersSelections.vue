@@ -62,25 +62,21 @@ function showStatistics(stat) {
       <img v-if="!isWheelActive" :src="alternateViewGridIcon" alt="grid view" width="74" height="74" />
       <img v-else :src="alternateViewWheelIcon" alt="wheel view" width="74" height="74" />
     </div>
-    <Transition name="fade">
-      <div v-if="!isWheelActive" class="fireblaze-numbers__grid">
-        <FireblazeNumberButton
-          v-for="{ number, stat } in numbers"
-          :id="`fireblaze-number-btn-${number}`"
-          :key="`ballnumber-${number}`"
-          :active="isNumberActive(number)"
-          :show-statistics="showStatistics(stat)"
-          @click="toggleNumber(number)">
-          <template #default>{{ number }}</template>
-          <template #stats>{{ stat }}</template>
-        </FireblazeNumberButton>
-      </div>
-    </Transition>
-    <Transition name="fade">
-      <div v-if="isWheelActive" class="fireblaze-numbers__wheel">
-        <FireblazeWheelView :numbers="numbers" :selected-numbers="selectedNumbers" @number-selected="toggleNumber" />
-      </div>
-    </Transition>
+    <div v-if="!isWheelActive" class="fireblaze-numbers__grid">
+      <FireblazeNumberButton
+        v-for="{ number, stat } in numbers"
+        :id="`fireblaze-number-btn-${number}`"
+        :key="`ballnumber-${number}`"
+        :active="isNumberActive(number)"
+        :show-statistics="showStatistics(stat)"
+        @click="toggleNumber(number)">
+        <template #default>{{ number }}</template>
+        <template #stats>{{ stat }}</template>
+      </FireblazeNumberButton>
+    </div>
+    <div v-if="isWheelActive" class="fireblaze-numbers__wheel">
+      <FireblazeWheelView :numbers="numbers" :selected-numbers="selectedNumbers" @number-selected="toggleNumber" />
+    </div>
   </NumbersSelectionLayout>
 </template>
 
@@ -112,22 +108,4 @@ function showStatistics(stat) {
   max-height: 450px;
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition:
-    opacity 0.5s ease,
-    transform 0.5s ease-in-out;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
-  transform: scale(0.9);
-}
-
-.fade-enter-to,
-.fade-leave-from {
-  opacity: 1;
-  transform: scale(1);
-}
 </style>
