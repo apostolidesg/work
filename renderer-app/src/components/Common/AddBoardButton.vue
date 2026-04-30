@@ -64,6 +64,11 @@ const addGameIcon = computed(() => {
   color: var(--ejp-color-button-add-board-text);
 }
 
+.add-board-button--fireblaze {
+  background: var(--fireblaze-gradient-pink-purple);
+  color: var(--fireblaze-color-primary-white);
+}
+
 .add-board-button__icon {
   @apply atw:flex atw:items-center atw:justify-center;
 }

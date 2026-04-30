@@ -59,8 +59,8 @@ function showStatistics(stat) {
       <span>{{ numberText }}</span>
     </template>
     <div class="fireblaze-numbers__alternate-view" @click="toggleWheelView">
-      <img v-if="!isWheelActive" :src="alternateViewGridIcon" alt="grid view" width="24" height="24" />
-      <img v-else :src="alternateViewWheelIcon" alt="wheel view" width="24" height="24" />
+      <img v-if="!isWheelActive" :src="alternateViewGridIcon" alt="grid view" width="74" height="74" />
+      <img v-else :src="alternateViewWheelIcon" alt="wheel view" width="74" height="74" />
     </div>
     <Transition name="fade">
       <div v-if="!isWheelActive" class="fireblaze-numbers__grid">
