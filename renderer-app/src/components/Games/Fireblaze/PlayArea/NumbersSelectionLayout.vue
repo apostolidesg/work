@@ -25,6 +25,7 @@
 
 .number-selection-layout__header-prefix {
   color: white;
+  margin-right: 4px;
 }
 
 .number-selection-layout__header-numbers {

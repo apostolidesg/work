@@ -126,11 +126,13 @@ const mainNumbers = computed(() => props.board.panels[0].selection);
 
 .fireblaze-selections__number {
   position: relative;
-  min-width: 35px;
-  text-align: center;
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   font-size: 15px;
   font-weight: 700;
-  padding: 0.5em;
   border-radius: 50%;
   z-index: 1;
   background: var(--fireblaze-gradient-light-gold);
