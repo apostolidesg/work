@@ -28,7 +28,7 @@ initializeElectronEventHandlers();
 initializeRequestHandlers();
 initializeEventBusHandlers();
 useCmsConfigPolling();
-useIdle();
+// useIdle(); // TODO: re-enable before pushing
 
 const { isVisible } = useGlobalLoader();
 const { isVertical } = useOrientation();
